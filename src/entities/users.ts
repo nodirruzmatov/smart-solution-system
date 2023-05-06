@@ -1,9 +1,10 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
+import { PrimaryGeneratedColumn, CreateDateColumn, Column, Entity } from "typeorm";
 
 @Entity({
   name: 'users'
 })
 export class Users {
+
   @PrimaryGeneratedColumn('uuid', {
     name: 'user_id'
   })
@@ -11,38 +12,14 @@ export class Users {
 
   @Column({
     type: 'varchar',
-    length: 32,
+    length: 62,
     nullable: false,
-    name: "user_name"
+    name: 'user_name'
   })
   name: string
 
   @Column({
-    type: 'varchar',
-    length: 32,
-    nullable: false,
-    name: "user_job"
-  })
-  job: string
-
-  @Column({
-    type: 'varchar',
-    length: 32,
-    nullable: false,
-    name: 'user_desc'
-  })
-  desc: string
-
-  @Column({
-    type: 'varchar',
-    length: 64,
-    nullable: false,
-    name: 'user_telegram'
-  })
-  telegram: string
-
-  @Column({
-    type: 'varchar',
+    type: "varchar",
     length: 128,
     nullable: false,
     name: 'user_mail'
@@ -50,18 +27,22 @@ export class Users {
   mail: string
 
   @Column({
-    type: 'varchar',
-    length: 64,
-    nullable: false,
-    name: 'user_insta'
-  })
-  insta: string
-
-  @Column({
-    type: 'varchar',
+    type: "varchar",
     length: 32,
     nullable: false,
-    name: 'user_phone'
+    name: 'user_title'
   })
-  phone: string
+  title: string
+
+  @Column({
+    type: 'text',
+    nullable: false,
+    name: 'user_desc'
+  })
+  desc: string
+
+  @CreateDateColumn({
+    type: 'timestamptz'
+  })
+  createAt: string
 }
