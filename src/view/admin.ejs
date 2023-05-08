@@ -223,32 +223,67 @@
 
 
   <section class="page-content">
+    <% if (link=="/admin/news" ) { %>
 
-    <section class="grid">
-      <article>
-        <form class="add_form" enctype="application/x-www-form-urlencoded" action="/admin/new" method="post">
+      <section class="grid">
+        <article>
+          <form class="add_form" enctype="application/x-www-form-urlencoded" action="/admin/add_news" method="post">
 
-          <input class="add_inp" type="text" name="title" placeholder="News title" required>
+            <input class="add_inp" type="text" name="title" placeholder="News title" required>
 
-          <input class="add_inp" type="text" name="desc" placeholder="News description" required>
+            <input class="add_inp inp_big" type="text" name="desc" placeholder="News description" required>
 
-          <input class="add_inp" type="text" name="img" placeholder="Image link" required>
+            <input class="add_inp" type="text" name="img" placeholder="Image link" required>
 
-          <input class="add_inp" type="text" name="location" placeholder="News location" required>
+            <input class="add_inp" type="text" name="location" placeholder="News location" required>
 
 
-          <button class="add_btn" type="submit">ADD</button>
-        </form>
-      </article>
-      <article></article>
-      <article></article>
-      <article></article>
-      <article></article>
-      <article></article>
-      <article></article>
-      <article></article>
-    </section>
+            <button class="add_btn" type="submit">ADD</button>
+          </form>
+        </article>
 
+
+      </section>
+      <ul class="list">
+
+        <li class="item">
+          <img class="item_img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/archer.png" width="300px"
+            height="230" alt="">
+          <h3 class="item_header">title</h3>
+          <p class="item_txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi quis provident
+            explicabo
+            error ad consequuntur soluta eius minima. Odio, rem?</p>
+          <p class="item_txt2">location adsad</p>
+
+          <button class="del_btn">delete</button>
+
+          <% allNews.map(e=> { %>
+        <li class="item">
+          <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+          <h3 class="item_header">
+            <%= e.title%>
+          </h3>
+          <p class="item_txt">
+            <%= e.desc%>
+          </p>
+
+          <p class="item_txt2">
+            <%= e.location%>
+          </p>
+          <p class="item_txt2">
+            <%= e.createAt %>
+          </p>
+
+          <a class="del_btn" href="/admin/delete_news/<%=e.id%> ">DELETE</a>
+
+        </li>
+        <% }) %>
+          </li>
+
+      </ul>
+
+
+      <% } %>
   </section>
 
 
