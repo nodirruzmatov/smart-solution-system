@@ -24,6 +24,6 @@ export class Admin {
     nullable: false,
     name: 'admin_password'
   })
-  name: string
+  password: string
 
 }

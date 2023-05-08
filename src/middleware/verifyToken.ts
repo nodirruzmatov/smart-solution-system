@@ -4,7 +4,6 @@ import { Exception } from "../exception/exception";
 
 interface IDecode {
   address: string;
-  role: string;
   id: string;
   iat: undefined;
   exp: number;
@@ -20,7 +19,7 @@ export const verifyToken = (
   res: Response,
   next: NextFunction
 ) => {
-  const { access_token } = req.headers;
+  const { access_token } = req.cookies;
 
   if (!access_token) {
     return next(new Exception("Provide token", 401));
@@ -39,7 +38,6 @@ export const verifyToken = (
       }
 
       req.userId = decode.id;
-      req.userRole = decode.role;
       next();
     }
   );

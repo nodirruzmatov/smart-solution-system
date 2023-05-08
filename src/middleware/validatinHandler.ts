@@ -3,19 +3,7 @@ import { ObjectSchema } from "joi";
 
 import { Exception } from "../exception/exception.js";
 
-interface filter {
-  value: object;
-  name: string;
-  age: string;
-  password: string;
-}
 
-interface RequestWithFiltered extends Request {
-  values?: filter;
-  name?: filter;
-  password?: filter;
-  age?: filter;
-}
 
 export const validationHandler = (schema: ObjectSchema) => {
   return async (req: Request, res: Response, next: NextFunction) => {
