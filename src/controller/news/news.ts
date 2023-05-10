@@ -95,7 +95,8 @@ class admin {
       .from(News)
       .where("news_id = :id", { id: id })
       .returning("*")
-      .execute();
+      .execute()
+      .catch((err) => next(new Exception(err.message, 504)))
 
     if (del) res.redirect('/news/news')
 
