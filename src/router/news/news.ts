@@ -1,5 +1,5 @@
 import { Router } from "express"; import { validationHandler } from "../../middleware/validatinHandler";
-import admin from '../../controller/admin/admin'
+import admin from '../../controller/news/news'
 import { verifyToken } from "../../middleware/verifyToken";
 import { JOI } from "../../validation/validation";
 

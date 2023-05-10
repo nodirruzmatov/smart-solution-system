@@ -1,6 +1,6 @@
 import { Router } from "express";
 import Login from './login/login'
-import Admin from './admin/admin'
+import Admin from './news/admin'
 
 const router = Router();
 
