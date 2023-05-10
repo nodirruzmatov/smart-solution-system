@@ -27,7 +27,7 @@ class login {
     }
 
     res.cookie("access_token", sing({ id: fountAdmin?.id }))
-    res.redirect('/admin/news')
+    res.redirect('/news/news')
 
   }
 

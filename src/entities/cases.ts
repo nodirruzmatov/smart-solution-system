@@ -25,4 +25,11 @@ export class Cases {
     name: 'case_link'
   })
   link: string
+
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    name: 'case_len'
+  })
+  len: string
 }

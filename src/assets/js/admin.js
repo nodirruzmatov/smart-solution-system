@@ -87,7 +87,7 @@ elCloseBtn.addEventListener("click", function () {
 
 
 const fn = (id) => {
-  document.getElementById("add__form-put").action = '/news/update_news/' + id;
+  document.getElementById("add__form-put").action = id;
 }
 
 const elChangeBtn = document.querySelectorAll(".put_btn")
@@ -104,5 +104,11 @@ elClosePutBtn.addEventListener("click", function () {
   elFormPut.classList.toggle("open")
 })
 
+const elVideo = document.querySelectorAll(".video")
+
+
+const youtube = (link) => {
+  // elVideo.forEach(e => e.)
+}
 
 
