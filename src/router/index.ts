@@ -1,9 +1,9 @@
 import { Router } from "express";
 import Login from './login/login'
-import Admin from './news/admin'
+import News from './news/news'
 
 const router = Router();
 
 export default router
   .use('/login', Login)
-  .use('/admin', Admin)
+  .use('/news', News)

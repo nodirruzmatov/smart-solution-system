@@ -127,7 +127,7 @@
           <h3>Admin</h3>
         </li>
         <li>
-          <a href="/admin/news">
+          <a href="/news/news">
             <svg>
               <use xlink:href="#pages"></use>
             </svg>
@@ -223,7 +223,7 @@
 
   <!-- ! New section -------------- -->
   <section class="page-content ">
-    <% if (link=="/admin/news" ) { %>
+    <% if (link=="/news/news" ) { %>
 
       <button class="create">Create</button>
       <section class="">
@@ -232,7 +232,7 @@
 
           <button class="close">Close</button>
 
-          <form class="add_form" enctype="application/x-www-form-urlencoded" action="/admin/add_news" method="post">
+          <form class="add_form" enctype="application/x-www-form-urlencoded" action="/news/add_news" method="post">
 
             <input class="add_inp" type="text" name="title" placeholder="News title" required>
 
@@ -261,6 +261,7 @@
       <ul class="list">
 
         <% allNews.map(e=> { %>
+
           <li class="item">
             <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
             <h3 class="item_header">
@@ -278,13 +279,10 @@
             </p>
 
             <div class="del_put">
-              <a class="del_btn" href="/admin/delete_news/<%=e.id%>">DELETE</a>
+              <a class="del_btn" href="/news/delete_news/<%=e.id%>">DELETE</a>
               <button class="put_btn" href="" onclick="fn('<%=e.id%>')">CHANGE</button>
 
             </div>
-
-
-
 
           </li>
           <% }) %>

@@ -14,7 +14,7 @@ class admin {
 
     allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
 
-    const link = '/admin/news'
+    const link = '/news/news'
 
     res.render('admin.ejs', { link, allNews })
   }
@@ -45,7 +45,7 @@ class admin {
       .catch((err) => next(new Exception(err.message, 504)))
 
 
-    if (createNews) res.redirect('/admin/news')
+    if (createNews) res.redirect('/news/news')
 
   }
 
@@ -72,7 +72,7 @@ class admin {
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
 
-    if (updateNews) res.redirect('/admin/news')
+    if (updateNews) res.redirect('/news/news')
 
   }
 
@@ -97,8 +97,7 @@ class admin {
       .returning("*")
       .execute();
 
-    if (del) res.redirect('/admin/news')
-
+    if (del) res.redirect('/news/news')
 
   }
 

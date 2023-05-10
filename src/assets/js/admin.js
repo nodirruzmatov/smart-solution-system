@@ -87,7 +87,7 @@ elCloseBtn.addEventListener("click", function () {
 
 
 const fn = (id) => {
-  document.getElementById("add__form-put").action = '/admin/update_news/' + id;
+  document.getElementById("add__form-put").action = '/news/update_news/' + id;
 }
 
 const elChangeBtn = document.querySelectorAll(".put_btn")
