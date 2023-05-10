@@ -71,4 +71,11 @@ export class Users {
     name: 'employee__img'
   })
   img: string
+
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    name: 'employee_len'
+  })
+  len: string
 }

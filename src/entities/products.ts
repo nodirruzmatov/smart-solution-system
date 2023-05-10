@@ -27,6 +27,13 @@ export class Products {
   })
   desc: string
 
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    name: 'product_len'
+  })
+  len: string
+
   @OneToMany(() => PImages, (pImages) => pImages.product)
   pImages: PImages[]
 }

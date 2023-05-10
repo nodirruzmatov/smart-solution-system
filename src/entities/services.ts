@@ -32,4 +32,11 @@ export class Services {
     name: 'service_img'
   })
   img: string
+
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    name: 'service_len'
+  })
+  len: string
 }
