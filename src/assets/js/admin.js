@@ -63,3 +63,46 @@ switchInput.addEventListener("input", function () {
     localStorage.setItem("dark-mode", "true");
   }
 });
+
+// !--------------------
+const elOpenBtn = document.querySelector(".create")
+const elCloseBtn = document.querySelector(".close")
+const elForm = document.querySelector(".form")
+// const elsectionBtn = document.querySelector(".alert")
+
+
+
+
+
+elOpenBtn.addEventListener("click", function () {
+  elForm.classList.remove("open")
+})
+
+
+elCloseBtn.addEventListener("click", function () {
+  elForm.classList.toggle("open")
+})
+
+// ! put -------
+
+
+const fn = (id) => {
+  document.getElementById("add__form-put").action = '/admin/update_news/' + id;
+}
+
+const elChangeBtn = document.querySelectorAll(".put_btn")
+const elClosePutBtn = document.querySelector(".close__put")
+
+const elFormPut = document.querySelector(".form_put")
+
+elChangeBtn.forEach(e => e.addEventListener('click', function () {
+  elFormPut.classList.remove('open')
+}))
+
+
+elClosePutBtn.addEventListener("click", function () {
+  elFormPut.classList.toggle("open")
+})
+
+
+

@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import dataSource from '../../config/orm'
 import { News } from "../../entities/news";
 import { Exception } from "../../exception/exception";
+import moment from "moment";
 
 class admin {
 
@@ -11,6 +12,8 @@ class admin {
       .find()
       .catch((err) => next(new Exception(err.message, 504)))
 
+    allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
+
     const link = '/admin/news'
 
     res.render('admin.ejs', { link, allNews })
@@ -18,7 +21,7 @@ class admin {
 
   public async AddNews(req: Request, res: Response, next: NextFunction): Promise<void> {
 
-    const { title, desc, img, location } = req.body
+    const { title, desc, img, location, len } = req.body
 
 
     const allNews = await dataSource.getRepository(News)
@@ -36,13 +39,40 @@ class admin {
       .createQueryBuilder()
       .insert()
       .into(News)
-      .values({ title, desc, location, img })
+      .values({ title, desc, location, img, len })
       .returning("*")
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
 
 
     if (createNews) res.redirect('/admin/news')
+
+  }
+
+  public async UpdateNews(req: Request, res: Response, next: NextFunction): Promise<void> {
+
+    const { id } = req.params;
+    const { title, desc, img, location, len } = req.body
+
+    const oneNews = await dataSource.getRepository(News)
+      .findOneBy({ id: id })
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    const t = title ? title : oneNews?.title
+    const d = desc ? desc : oneNews?.desc
+    const i = img ? img : oneNews?.img
+    const l = location ? location : oneNews?.location
+
+    const updateNews = await dataSource
+      .createQueryBuilder()
+      .update(News)
+      .set({ title: t, desc: d, img: i, location: l, len })
+      .where({ id })
+      .returning("*")
+      .execute()
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    if (updateNews) res.redirect('/admin/news')
 
   }
 

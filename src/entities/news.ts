@@ -42,6 +42,13 @@ export class News {
   })
   img: string
 
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    name: 'news_len'
+  })
+  len: string
+
   @CreateDateColumn({
     type: 'timestamptz'
   })

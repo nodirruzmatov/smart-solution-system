@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/assets/css/admin.css">
-  <title>Document</title>
+  <title>Smasrt Solution System</title>
 </head>
 
 <body>
@@ -127,11 +127,11 @@
           <h3>Admin</h3>
         </li>
         <li>
-          <a href="#0">
+          <a href="/admin/news">
             <svg>
               <use xlink:href="#pages"></use>
             </svg>
-            <span>Pages</span>
+            <span>News</span>
           </a>
         </li>
         <li>
@@ -225,62 +225,98 @@
   <section class="page-content">
     <% if (link=="/admin/news" ) { %>
 
-      <section class="grid">
-        <article>
+      <button class="create">Create</button>
+      <section class="">
+
+        <div class="form open">
+
+          <button class="close">Close</button>
+
           <form class="add_form" enctype="application/x-www-form-urlencoded" action="/admin/add_news" method="post">
 
             <input class="add_inp" type="text" name="title" placeholder="News title" required>
 
-            <input class="add_inp inp_big" type="text" name="desc" placeholder="News description" required>
+
+            <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
+              placeholder="News description"></textarea>
 
             <input class="add_inp" type="text" name="img" placeholder="Image link" required>
 
             <input class="add_inp" type="text" name="location" placeholder="News location" required>
 
+            <select class="add_inp" name="len" required>
+              <option selected value="uz">Uzbek</option>
+              <option value="eng">English</option>
+            </select>
 
             <button class="add_btn" type="submit">ADD</button>
           </form>
-        </article>
+
+          <!-- <div class="bg"></div> -->
+        </div>
 
 
       </section>
+
       <ul class="list">
 
-        <li class="item">
-          <img class="item_img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/archer.png" width="300px"
-            height="230" alt="">
-          <h3 class="item_header">title</h3>
-          <p class="item_txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi quis provident
-            explicabo
-            error ad consequuntur soluta eius minima. Odio, rem?</p>
-          <p class="item_txt2">location adsad</p>
+        <% allNews.map(e=> { %>
+          <li class="item">
+            <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+            <h3 class="item_header">
+              <%= e.title%>
+            </h3>
+            <p class="item_txt">
+              <%= e.desc%>
+            </p>
 
-          <button class="del_btn">delete</button>
+            <p class="item_txt2">
+              <%= e.location%>
+            </p>
+            <p class="item_txt2">
+              <%= e.createAt %>
+            </p>
 
-          <% allNews.map(e=> { %>
-        <li class="item">
-          <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
-          <h3 class="item_header">
-            <%= e.title%>
-          </h3>
-          <p class="item_txt">
-            <%= e.desc%>
-          </p>
+            <div class="del_put">
+              <a class="del_btn" href="/admin/delete_news/<%=e.id%>">DELETE</a>
+              <button class="put_btn" href="" onclick="fn('<%=e.id%>')">CHANGE</button>
 
-          <p class="item_txt2">
-            <%= e.location%>
-          </p>
-          <p class="item_txt2">
-            <%= e.createAt %>
-          </p>
+            </div>
 
-          <a class="del_btn" href="/admin/delete_news/<%=e.id%> ">DELETE</a>
 
-        </li>
-        <% }) %>
+
+
           </li>
+          <% }) %>
+
 
       </ul>
+
+      <div class="form_put open">
+
+        <button class="close__put">Close</button>
+
+        <form id="add__form-put" class="add_form" enctype="application/x-www-form-urlencoded" action="" method="post">
+
+          <input class="add_inp" type="text" name="title" placeholder="News title">
+
+
+          <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
+            placeholder="News description"></textarea>
+
+          <input class="add_inp" type="text" name="img" placeholder="Image link">
+
+          <input class="add_inp" type="text" name="location" placeholder="News location">
+
+          <select class="add_inp" name="len">
+            <option selected value="uz">Uzbek</option>
+            <option value="eng">English</option>
+          </select>
+
+          <button class="add_btn" type="submit">ADD</button>
+        </form>
+
+      </div>
 
 
       <% } %>
