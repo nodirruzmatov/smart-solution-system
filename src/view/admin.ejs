@@ -143,11 +143,11 @@
           </a>
         </li>
         <li>
-          <a href="#0">
+          <a href="/employee/employee">
             <svg>
               <use xlink:href="#trends"></use>
             </svg>
-            <span>Trends</span>
+            <span>Employees</span>
           </a>
         </li>
         <li>
@@ -406,6 +406,136 @@
 
         </section>
         <% } %>
+
+          <!-- ! employees section --------------------- -->
+          <% if (link=='/employee/employee' ) { %>
+            <section class="page-content Cases">
+
+              <button class="create">Create</button>
+              <section class="">
+
+                <div class="form open">
+
+                  <button class="close">Close</button>
+
+                  <form class="add_form" enctype="application/x-www-form-urlencoded" action="/employee/create"
+                    method="post">
+
+                    <input class="add_inp" type="text" name="name" placeholder="Employee's name" required>
+
+                    <input class="add_inp" type="text" name="job" placeholder="Employee's job" required>
+
+                    <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
+                      placeholder="About employee"></textarea>
+
+                    <input class="add_inp" type="text" name="telegram" placeholder="Employee's telegram" required>
+
+                    <input class="add_inp" type="text" name="mail" placeholder="Employee's mail" required>
+
+                    <input class="add_inp" type="text" name="insta" placeholder="Employee's instagram" required>
+
+                    <input class="add_inp" type="text" name="phone" placeholder="Employee's phone" required>
+
+                    <input class="add_inp" type="text" name="img" placeholder="Employee's image" required>
+
+                    <select class="add_inp" name="len" required>
+                      <option selected value="uz">Uzbek</option>
+                      <option value="eng">English</option>
+                    </select>
+
+                    <button class="add_btn" type="submit">ADD</button>
+                  </form>
+
+                  <!-- <div class="bg"></div> -->
+                </div>
+
+
+              </section>
+
+              <ul class="list">
+
+                <% allEmployees.map(e=> { %>
+
+                  <li class="item">
+
+                    <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+
+                    <h3 class="item_header">
+                      <%= e.name%>
+                    </h3>
+
+                    <p class="item_txt2">
+                      <%= e.job%>
+                    </p>
+
+                    <p class="item_txt">
+                      <%= e.desc%>
+                    </p>
+
+                    <a href="<%= e.telegram %>" target="_blank" class="item_txt2">
+                      <%= e.telegram%>
+                    </a>
+                    <a href="mailto:<%=e.mail%>" target="_blank" class="item_txt2">
+                      <%= e.mail%>
+                    </a>
+                    <a href="<%= e.insta %>" target="_blank" class="item_txt2">
+                      <%= e.insta%>
+                    </a>
+                    <a href="tel:<%=e.phone%>" target="_blank" class="item_txt2">
+                      <%= e.phone%>
+                    </a>
+                    <a href=""></a>
+
+
+                    <div class="del_put">
+                      <a class="del_btn" href="/employee/delete/<%=e.id%>">DELETE</a>
+                      <button class="put_btn" href="" onclick="fn('/employee/update/<%=e.id%>')">CHANGE</button>
+
+                    </div>
+
+                  </li>
+                  <% }) %>
+
+
+              </ul>
+
+              <div class="form_put open">
+
+                <button class="close__put">Close</button>
+
+                <form id="add__form-put" class="add_form" enctype="application/x-www-form-urlencoded" action=""
+                  method="post">
+
+                  <input class="add_inp" type="text" name="name" placeholder="Employee's name">
+
+                  <input class="add_inp" type="text" name="job" placeholder="Employee's job">
+
+                  <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
+                    placeholder="About employee"></textarea>
+
+                  <input class="add_inp" type="text" name="telegram" placeholder="Employee's telegram">
+
+                  <input class="add_inp" type="text" name="mail" placeholder="Employee's mail">
+
+                  <input class="add_inp" type="text" name="insta" placeholder="Employee's instagram">
+
+                  <input class="add_inp" type="text" name="phone" placeholder="Employee's phone">
+
+                  <input class="add_inp" type="text" name="img" placeholder="Employee's image">
+
+                  <select class="add_inp" name="len">
+                    <option selected value="uz">Uzbek</option>
+                    <option value="eng">English</option>
+                  </select>
+
+                  <button class="add_btn" type="submit">ADD</button>
+                </form>
+
+              </div>
+
+
+            </section>
+            <% } %>
 
 
 
