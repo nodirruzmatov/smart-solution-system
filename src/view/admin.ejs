@@ -151,11 +151,11 @@
           </a>
         </li>
         <li>
-          <a href="#0">
+          <a href="/services/services">
             <svg>
               <use xlink:href="#collection"></use>
             </svg>
-            <span>Collection</span>
+            <span>Sevices</span>
           </a>
         </li>
         <li>
@@ -536,6 +536,99 @@
 
             </section>
             <% } %>
+
+              <!-- ! Sevices section -->
+
+              <% if (link=="/services/services" ) { %>
+                <section class="page-content services">
+
+                  <button class="create">Create</button>
+                  <section class="">
+
+                    <div class="form open">
+
+                      <button class="close">Close</button>
+
+                      <form class="add_form" enctype="application/x-www-form-urlencoded" action="/services/create"
+                        method="post">
+
+                        <input class="add_inp" type="text" name="title" placeholder="Service title" required>
+
+                        <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
+                          placeholder="About services"></textarea>
+
+                        <input class="add_inp" type="text" name="img" placeholder="Image link" required>
+
+                        <select class="add_inp" name="len" required>
+                          <option selected value="uz">Uzbek</option>
+                          <option value="eng">English</option>
+                        </select>
+
+                        <button class="add_btn" type="submit">ADD</button>
+                      </form>
+
+                      <!-- <div class="bg"></div> -->
+                    </div>
+
+
+                  </section>
+
+                  <ul class="list">
+
+                    <% get.map(e=> { %>
+
+                      <li class="item">
+
+                        <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+
+                        <h3 class="item_header">
+                          <%= e.title%>
+                        </h3>
+
+                        <p class="item_txt">
+                          <%= e.desc%>
+                        </p>
+
+                        <div class="del_put">
+                          <a class="del_btn" href="/services/delete/<%=e.id%>">DELETE</a>
+                          <button class="put_btn" href="" onclick="fn('/services/update/<%=e.id%>')">CHANGE</button>
+
+                        </div>
+
+                      </li>
+                      <% }) %>
+
+
+                  </ul>
+
+                  <div class="form_put open">
+
+                    <button class="close__put">Close</button>
+
+                    <form id="add__form-put" class="add_form" enctype="application/x-www-form-urlencoded" action=""
+                      method="post">
+
+                      <input class="add_inp" type="text" name="title" placeholder="Service title">
+
+                      <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
+                        placeholder="About services"></textarea>
+
+                      <input class="add_inp" type="text" name="img" placeholder="Image link">
+
+                      <select class="add_inp" name="len">
+                        <option selected value="uz">Uzbek</option>
+                        <option value="eng">English</option>
+                      </select>
+
+                      <button class="add_btn" type="submit">ADD</button>
+                    </form>
+
+                  </div>
+
+
+                </section>
+                <% } %>
+
 
 
 

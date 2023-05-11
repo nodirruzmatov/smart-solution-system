@@ -51,7 +51,17 @@ export const JOI = {
     img: Joi.string().allow(""),
     len: Joi.string().max(16)
   }),
-
-
+  sevices: Joi.object({
+    title: Joi.string().max(32).required(),
+    desc: Joi.string().max(512).required(),
+    img: Joi.string().required(),
+    len: Joi.string().max(16)
+  }),
+  sevicesPut: Joi.object({
+    title: Joi.string().max(32).allow(""),
+    desc: Joi.string().max(512).allow(""),
+    img: Joi.string().allow(""),
+    len: Joi.string().max(16)
+  })
 
 }
