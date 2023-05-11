@@ -5,6 +5,7 @@ import Cases from './cases/cases'
 import Employees from './employees/employees'
 import Services from './servic/servic'
 import Products from "./products/products"
+import Users from './users/users'
 
 const router = Router();
 
@@ -15,3 +16,4 @@ export default router
   .use('/employee', Employees)
   .use('/services', Services)
   .use('/products', Products)
+  .use('/users', Users)

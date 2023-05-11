@@ -3,7 +3,6 @@ import dataSource from '../../config/orm'
 import { Exception } from "../../exception/exception";
 import { Products } from "../../entities/products";
 import { PImages } from "../../entities/pimages";
-import { log } from "console";
 
 
 

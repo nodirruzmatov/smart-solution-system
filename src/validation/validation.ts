@@ -75,6 +75,12 @@ export const JOI = {
   }),
   images: Joi.object({
     link: Joi.string().required(),
+  }),
+  mail: Joi.object({
+    name: Joi.string().max(32).required(),
+    mail: Joi.string().max(128).required(),
+    title: Joi.string().max(32).required(),
+    desc: Joi.string().max(512).required(),
   })
 
 

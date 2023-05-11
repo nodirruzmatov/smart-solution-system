@@ -167,40 +167,17 @@
           </a>
         </li>
         <li>
-          <a href="#0">
+          <a href="/users/users">
             <svg>
               <use xlink:href="#appearance"></use>
             </svg>
-            <span>Appearance</span>
+            <span>Users</span>
           </a>
         </li>
-        <li class="menu-heading">
-          <h3>Settings</h3>
-        </li>
-        <li>
-          <a href="#0">
-            <svg>
-              <use xlink:href="#settings"></use>
-            </svg>
-            <span>Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="#0">
-            <svg>
-              <use xlink:href="#options"></use>
-            </svg>
-            <span>Options</span>
-          </a>
-        </li>
-        <li>
-          <a href="#0">
-            <svg>
-              <use xlink:href="#charts"></use>
-            </svg>
-            <span>Charts</span>
-          </a>
-        </li>
+
+
+
+
         <li>
           <div class="switch">
             <input type="checkbox" id="mode" checked>
@@ -743,6 +720,52 @@
 
                     </section>
                     <% } %>
+
+                      <!-- ! users section -->
+                      <% if (link=='/users/users' ) { %>
+                        <section class="page-content users">
+
+                          <ul class="list">
+
+                            <% get.map(e=> { %>
+
+                              <li class="item">
+
+                                <h3 class="item_header">
+                                  <%= e.name%>
+                                </h3>
+
+                                <p class="item_txt2">
+                                  <%= e.mail%>
+                                </p>
+
+                                <p class="item_txt">
+                                  <%= e.title%>
+                                </p>
+
+                                <p class="item_txt">
+                                  <%= e.desc%>
+                                </p>
+
+                                <p class="item_txt2">
+                                  <%= e.createAt%>
+                                </p>
+
+
+                                <div class="del_put">
+                                  <a class="del_btn del_btn2" href="/users/delMail/<%=e.id%>">DELETE</a>
+
+
+                                </div>
+
+                              </li>
+                              <% }) %>
+
+
+                          </ul>
+
+                        </section>
+                        <% } %>
 
 
 

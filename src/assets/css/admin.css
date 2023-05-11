@@ -764,6 +764,10 @@ body {
   background-color: #ce8934;
 }
 
+.del_btn2 {
+  border-bottom-right-radius: 14px;
+}
+
 .add_img {
   margin: 0;
   padding: 0;
