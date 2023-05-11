@@ -581,6 +581,23 @@ body {
   z-index: 1;
 }
 
+.form_img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  mix-blend-mode: normal;
+  opacity: 0.9;
+  z-index: 1;
+}
+
 
 .add_form{
   max-width: 900px;
@@ -599,6 +616,21 @@ body {
 }
 
 .add__form-put{
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  align-content: space-around;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;  
+  font-size: 30px;
+  opacity: 1;
+  z-index: 20;
+}
+
+.add__form-img{
   max-width: 900px;
   width: 100%;
   display: flex;
@@ -732,6 +764,22 @@ body {
   background-color: #ce8934;
 }
 
+.add_img {
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+  width: 100%;
+  background-color: #EC9B3B;
+  color: #fff;
+  padding: 15px;
+  font-size: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.add_img:hover{
+  background-color: #ce8934;
+}
+
 
 .put_btn {
   align-items: stretch;
@@ -791,4 +839,58 @@ body {
   font-size: 20px;
   padding: 20px;
   border-radius: 14px;
+}
+
+.close__img{
+  width: 900px;
+  margin-bottom: 10px;
+  background-color: #EC9B3B;
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.add_inp_img{
+  text-decoration: none;
+  max-height: 40px;
+  height: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  outline: none;
+  color: #dde9f8;  
+  background-color: #242e42;
+  font-size: 20px;
+}
+
+.img_box{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+
+
+}
+.img_box2{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.img_products{
+  width: 142px;
+  height: 115px;
+
+}
+.img_del{
+
+  color: #fff;
+  font-size: 15px;
+  background-color: #EC9B3B;
+}
+.img_del:hover{
+  background-color: #ce8934;
 }

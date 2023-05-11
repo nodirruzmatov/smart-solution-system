@@ -62,6 +62,20 @@ export const JOI = {
     desc: Joi.string().max(512).allow(""),
     img: Joi.string().allow(""),
     len: Joi.string().max(16)
+  }),
+  products: Joi.object({
+    name: Joi.string().max(32).required(),
+    desc: Joi.string().max(512).required(),
+    len: Joi.string().max(16)
+  }),
+  productsPut: Joi.object({
+    name: Joi.string().max(32).allow(""),
+    desc: Joi.string().max(512).allow(""),
+    len: Joi.string().max(16)
+  }),
+  images: Joi.object({
+    link: Joi.string().required(),
   })
+
 
 }

@@ -19,6 +19,10 @@ export class PImages {
   })
   link: string
 
-  @ManyToOne(() => Products, (products) => products.pImages)
+  @ManyToOne(() => Products, (products) => products.pImages, {
+    onDelete: "CASCADE",
+    onUpdate: "NO ACTION",
+    cascade: true,
+  })
   product: Products
 }

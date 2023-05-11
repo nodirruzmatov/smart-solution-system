@@ -104,11 +104,29 @@ elClosePutBtn.addEventListener("click", function () {
   elFormPut.classList.toggle("open")
 })
 
-const elVideo = document.querySelectorAll(".video")
 
 
-const youtube = (link) => {
-  // elVideo.forEach(e => e.)
+// ! ---------------------
+
+const fn2 = (id) => {
+  document.getElementById('add__form-img').action = id
 }
+
+const elImgBtn = document.querySelectorAll(".add_img")
+const elCloseImgBtn = document.querySelector(".close__img")
+
+const elFormImg = document.querySelector(".form_img")
+
+
+elImgBtn.forEach(e => e.addEventListener('click', function () {
+  elFormImg.classList.remove('open')
+}))
+
+elCloseImgBtn.addEventListener("click", function () {
+  elFormImg.classList.toggle("open")
+})
+
+
+
 
 
