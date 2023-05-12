@@ -113,10 +113,15 @@
   <header class="page-header">
     <nav>
       <a href="#0" aria-label="forecastr logo" class="logo">
-        <svg width="140" height="49">
+        <div class="logo-box">
+          <img src="/assets/images/logo3.png" width="36" height="32" alt="logo">
+          <h4 class="logo-txt">SMART SOLUTION SYSTEN</h4>
+        </div>
+        <!-- <svg width="140" height="49">
           <use xlink:href="#logo"></use>
-        </svg>
+        </svg> -->
       </a>
+
       <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
         <svg width="20" height="20" aria-hidden="true">
           <use xlink:href="#down"></use>
@@ -668,8 +673,7 @@
 
                             <div class="del_put">
                               <a class="del_btn" href="/products/delete/<%=e.id%>">DELETE</a>
-                              <button class="put_btn" href=""
-                                onclick="fn2('/products/update/<%=e.id%>')">CHANGE</button>
+                              <button class="put_btn" href="" onclick="fn('/products/update/<%=e.id%>')">CHANGE</button>
 
                             </div>
 

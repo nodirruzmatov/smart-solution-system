@@ -39,9 +39,7 @@ class users {
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
 
-    res.sendStatus(200).json({
-      message: "Successfuly"
-    })
+    res.json(createMail)
 
 
   }
