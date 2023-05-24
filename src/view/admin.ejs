@@ -219,9 +219,10 @@
             <input class="add_inp" type="text" name="title" placeholder="News title" required>
 
 
-            <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required placeholder="News description"></textarea>
+            <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
+              placeholder="News description"></textarea>
 
-           
+
             <input class="add_inp" type="file" name="img" id="img" required multiple>
 
             <input class="add_inp" type="text" name="location" placeholder="News location" required>
@@ -284,7 +285,7 @@
           <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
             placeholder="News description"></textarea>
 
-          <input class="add_inp" type="file" name="img" id="img"  multiple>
+          <input class="add_inp" type="file" name="img" id="img" multiple>
 
           <input class="add_inp" type="text" name="location" placeholder="News location">
 
@@ -400,8 +401,7 @@
 
                   <button class="close">Close</button>
 
-                  <form class="add_form" enctype="multipart/form-data" action="/employee/create"
-                    method="post">
+                  <form class="add_form" enctype="multipart/form-data" action="/employee/create" method="post">
 
                     <input class="add_inp" type="text" name="name" placeholder="Employee's name" required>
 
@@ -485,8 +485,7 @@
 
                 <button class="close__put">Close</button>
 
-                <form id="add__form-put" class="add_form" enctype="multipart/form-data" action=""
-                  method="post">
+                <form id="add__form-put" class="add_form" enctype="multipart/form-data" action="" method="post">
 
                   <input class="add_inp" type="text" name="name" placeholder="Employee's name">
 
@@ -503,7 +502,7 @@
 
                   <input class="add_inp" type="text" name="phone" placeholder="Employee's phone">
 
-                  <input class="add_inp" type="file" name="img"  multiple>
+                  <input class="add_inp" type="file" name="img" multiple>
 
                   <select class="add_inp" name="len">
                     <option selected value="uz">Uzbek</option>
@@ -531,8 +530,7 @@
 
                       <button class="close">Close</button>
 
-                      <form class="add_form" enctype="multipart/form-data" action="/services/create"
-                        method="post">
+                      <form class="add_form" enctype="multipart/form-data" action="/services/create" method="post">
 
                         <input class="add_inp" type="text" name="title" placeholder="Service title" required>
 
@@ -587,8 +585,7 @@
 
                     <button class="close__put">Close</button>
 
-                    <form id="add__form-put" class="add_form" enctype="multipart/form-data" action=""
-                      method="post">
+                    <form id="add__form-put" class="add_form" enctype="multipart/form-data" action="" method="post">
 
                       <input class="add_inp" type="text" name="title" placeholder="Service title">
 
@@ -655,7 +652,7 @@
                               <button onclick="fn2('/products/img/<%=e.id%>')" class="add_img">ADD Image</button>
                               <% e.pImages.map(i=>{ %>
                                 <div class="img_box2">
-                                  <img class="img_products" src="<%=i.link %>" alt="">
+                                  <img class="img_products" src="/images/<%=i.link %>" alt="">
 
                                   <a class="img_del" href="/products/delete_img/<%=i.id%>">delete</a>
                                 </div>
@@ -710,10 +707,9 @@
 
                         <button class="close__img">Close</button>
 
-                        <form id="add__form-img" class="add_form" enctype="application/x-www-form-urlencoded" action=""
-                          method="post">
+                        <form id="add__form-img" class="add_form" enctype="multipart/form-data" action="" method="post">
 
-                          <input class="add_inp" type="text" name="link" placeholder="Images">
+                          <input class="add_inp" type="file" name="img" multiple>
                           <!-- <input class="add_inp_img" type="text" name="product" placeholder="Images"> -->
 
                           <button class="add_btn" type="submit">ADD</button>

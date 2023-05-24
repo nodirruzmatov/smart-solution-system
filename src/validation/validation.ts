@@ -12,7 +12,7 @@ export const JOI = {
     img: Joi.any(),
     location: Joi.string().max(512).required(),
     len: Joi.string().max(16).required(),
-    
+
   }),
   newsPut: Joi.object({
     title: Joi.string().max(64).allow(""),
@@ -76,7 +76,7 @@ export const JOI = {
     len: Joi.string().max(16)
   }),
   images: Joi.object({
-    link: Joi.string().required(),
+    img: Joi.any(),
   }),
   mail: Joi.object({
     name: Joi.string().max(32).required(),
