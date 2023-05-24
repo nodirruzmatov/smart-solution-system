@@ -214,15 +214,15 @@
 
           <button class="close">Close</button>
 
-          <form class="add_form" enctype="application/x-www-form-urlencoded" action="/news/add_news" method="post">
+          <form class="add_form" action="/news/add_news" enctype="multipart/form-data" method="post">
 
             <input class="add_inp" type="text" name="title" placeholder="News title" required>
 
 
-            <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
-              placeholder="News description"></textarea>
+            <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required placeholder="News description"></textarea>
 
-            <input class="add_inp" type="text" name="img" placeholder="Image link" required>
+           
+            <input class="add_inp" type="file" name="img" id="img" required multiple>
 
             <input class="add_inp" type="text" name="location" placeholder="News location" required>
 
@@ -245,7 +245,7 @@
         <% allNews.map(e=> { %>
 
           <li class="item">
-            <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+            <img class="item_img" src="/images/<%= e.img %> " width="235" height="156" alt="building">
             <h3 class="item_header">
               <%= e.title%>
             </h3>
@@ -276,7 +276,7 @@
 
         <button class="close__put">Close</button>
 
-        <form id="add__form-put" class="add_form" enctype="application/x-www-form-urlencoded" action="" method="post">
+        <form id="add__form-put" class="add_form" enctype="multipart/form-data" action="" method="post">
 
           <input class="add_inp" type="text" name="title" placeholder="News title">
 
@@ -284,7 +284,7 @@
           <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
             placeholder="News description"></textarea>
 
-          <input class="add_inp" type="text" name="img" placeholder="Image link">
+          <input class="add_inp" type="file" name="img" id="img"  multiple>
 
           <input class="add_inp" type="text" name="location" placeholder="News location">
 
@@ -400,7 +400,7 @@
 
                   <button class="close">Close</button>
 
-                  <form class="add_form" enctype="application/x-www-form-urlencoded" action="/employee/create"
+                  <form class="add_form" enctype="multipart/form-data" action="/employee/create"
                     method="post">
 
                     <input class="add_inp" type="text" name="name" placeholder="Employee's name" required>
@@ -418,7 +418,7 @@
 
                     <input class="add_inp" type="text" name="phone" placeholder="Employee's phone" required>
 
-                    <input class="add_inp" type="text" name="img" placeholder="Employee's image" required>
+                    <input class="add_inp" type="file" name="img" required multiple>
 
                     <select class="add_inp" name="len" required>
                       <option selected value="uz">Uzbek</option>
@@ -440,7 +440,7 @@
 
                   <li class="item">
 
-                    <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+                    <img class="item_img" src="/images/<%= e.img %> " width="235" height="156" alt="building">
 
                     <h3 class="item_header">
                       <%= e.name%>
@@ -485,7 +485,7 @@
 
                 <button class="close__put">Close</button>
 
-                <form id="add__form-put" class="add_form" enctype="application/x-www-form-urlencoded" action=""
+                <form id="add__form-put" class="add_form" enctype="multipart/form-data" action=""
                   method="post">
 
                   <input class="add_inp" type="text" name="name" placeholder="Employee's name">
@@ -503,7 +503,7 @@
 
                   <input class="add_inp" type="text" name="phone" placeholder="Employee's phone">
 
-                  <input class="add_inp" type="text" name="img" placeholder="Employee's image">
+                  <input class="add_inp" type="file" name="img"  multiple>
 
                   <select class="add_inp" name="len">
                     <option selected value="uz">Uzbek</option>
@@ -531,7 +531,7 @@
 
                       <button class="close">Close</button>
 
-                      <form class="add_form" enctype="application/x-www-form-urlencoded" action="/services/create"
+                      <form class="add_form" enctype="multipart/form-data" action="/services/create"
                         method="post">
 
                         <input class="add_inp" type="text" name="title" placeholder="Service title" required>
@@ -539,7 +539,7 @@
                         <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
                           placeholder="About services"></textarea>
 
-                        <input class="add_inp" type="text" name="img" placeholder="Image link" required>
+                        <input class="add_inp" type="file" name="img" multiple required>
 
                         <select class="add_inp" name="len" required>
                           <option selected value="uz">Uzbek</option>
@@ -561,7 +561,7 @@
 
                       <li class="item">
 
-                        <img class="item_img" src="<%= e.img %> " width="235" height="156" alt="building">
+                        <img class="item_img" src="/images/<%=e.img %> " width="235" height="156" alt="building">
 
                         <h3 class="item_header">
                           <%= e.title%>
@@ -587,7 +587,7 @@
 
                     <button class="close__put">Close</button>
 
-                    <form id="add__form-put" class="add_form" enctype="application/x-www-form-urlencoded" action=""
+                    <form id="add__form-put" class="add_form" enctype="multipart/form-data" action=""
                       method="post">
 
                       <input class="add_inp" type="text" name="title" placeholder="Service title">
@@ -595,7 +595,7 @@
                       <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
                         placeholder="About services"></textarea>
 
-                      <input class="add_inp" type="text" name="img" placeholder="Image link">
+                      <input class="add_inp" type="file" name="img" multiple>
 
                       <select class="add_inp" name="len">
                         <option selected value="uz">Uzbek</option>

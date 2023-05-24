@@ -9,9 +9,10 @@ export const JOI = {
   news: Joi.object({
     title: Joi.string().max(64).required(),
     desc: Joi.string().max(512).required(),
-    img: Joi.string().required(),
+    img: Joi.any(),
     location: Joi.string().max(512).required(),
-    len: Joi.string().max(16).required()
+    len: Joi.string().max(16).required(),
+    
   }),
   newsPut: Joi.object({
     title: Joi.string().max(64).allow(""),
@@ -38,7 +39,7 @@ export const JOI = {
     mail: Joi.string().max(128).required(),
     insta: Joi.string().max(64).required(),
     phone: Joi.string().max(32).required(),
-    img: Joi.string().required(),
+    img: Joi.any(),
     len: Joi.string().max(16)
   }),
   employeesPut: Joi.object({
@@ -55,7 +56,7 @@ export const JOI = {
   sevices: Joi.object({
     title: Joi.string().max(32).required(),
     desc: Joi.string().max(512).required(),
-    img: Joi.string().required(),
+    img: Joi.any(),
     len: Joi.string().max(16)
   }),
   sevicesPut: Joi.object({

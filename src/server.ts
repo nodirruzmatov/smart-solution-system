@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import dataSource from "./config/orm";
 import cors from "cors"
 import dotenv from "dotenv";
+import expressFileUpload from 'express-fileupload'
 import { exceptionHandler } from "./middleware/exception";
 import router from "./router";
 import path from "path";
@@ -17,12 +18,14 @@ const main = async (): Promise<void> => {
     app.use(cors())
     app.use(express.json());
     await dataSource.initialize();
+    app.use(expressFileUpload())
 
 
     app.set('view engine', 'ejs')
     app.set('views', path.join(process.cwd(), 'src', 'view'))
 
     app.use('/assets', express.static(path.join(process.cwd(), 'src', 'assets')))
+    app.use('/images', express.static(path.join(process.cwd(), 'src', 'images')))
 
     app.use(express.urlencoded({ extended: true }))
     app.use(cookieParser())
