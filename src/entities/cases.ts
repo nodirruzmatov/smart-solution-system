@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column, Entity, } from "typeorm";
+import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn, } from "typeorm";
 
 
 @Entity({
@@ -32,4 +32,9 @@ export class Cases {
     name: 'case_len'
   })
   len: string
+
+  @CreateDateColumn({
+    type: 'timestamptz'
+  })
+  createAt: string
 }

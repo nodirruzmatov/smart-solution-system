@@ -59,6 +59,8 @@ class users {
     if (delmail) res.redirect('/users/users')
   }
 
+
+  // ! cases -------------------
   public async GetCases(req: Request, res: Response, next: NextFunction) {
 
     const allCases = await dataSource.getRepository(Cases)
@@ -69,6 +71,21 @@ class users {
 
   }
 
+  public async GetCesesThree(req: Request, res: Response, next: NextFunction){
+
+    const threeCases = await dataSource.getRepository(Cases)
+      .find({
+        order:{
+          createAt:"DESC"
+        },
+        take:3
+      })
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    res.json(threeCases);
+  }
+
+  // ! Employees ----------------
   public async GetEmployees(req: Request, res: Response, next: NextFunction) {
 
     const allEmployees = await dataSource
@@ -79,8 +96,23 @@ class users {
     res.json(allEmployees);
 
   }
+  public async GetEmployeesThree(req: Request, res: Response, next: NextFunction) {
 
+    const allEmployees = await dataSource
+      .getRepository(Emmpoyees)
+      .find({
+        order:{
+          createAt:"ASC"
+        },
+        take:6
+      })
+      .catch((err) => next(new Exception(err.message, 504)))
 
+    res.json(allEmployees);
+
+  }
+
+// !news -----------------
   public async GetNews(req: Request, res: Response, next: NextFunction) {
 
     const allNews = await dataSource.getRepository(News)
@@ -92,7 +124,24 @@ class users {
     res.json(allNews)
   }
 
+  public async GetNewsThree(req: Request, res: Response, next: NextFunction) {
 
+    const allNews = await dataSource.getRepository(News)
+      .find({
+        order:{
+          createAt:"DESC"
+        },
+        take:5
+      })
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
+
+    res.json(allNews)
+  }
+
+
+  // ! products ----------
   public async GetProducts(req: Request, res: Response, next: NextFunction) {
 
     const get = await dataSource
@@ -105,11 +154,22 @@ class users {
     res.json(get)
   }
 
-
+// ! ------------------
   public async getServices(req: Request, res: Response, next: NextFunction) {
     const get = await dataSource
       .getRepository(Services)
       .find()
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    res.json(get)
+  }
+
+  public async getServicesThree(req: Request, res: Response, next: NextFunction) {
+    const get = await dataSource
+      .getRepository(Services)
+      .find({
+        take:6
+      })
       .catch((err) => next(new Exception(err.message, 504)))
 
     res.json(get)

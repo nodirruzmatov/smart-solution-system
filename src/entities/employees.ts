@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn } from 'typeorm'
 
 @Entity({
   name: 'employees'
@@ -78,4 +78,9 @@ export class Emmpoyees {
     name: 'employee_len'
   })
   len: string
+
+  @CreateDateColumn({
+    type: 'timestamptz'
+  })
+  createAt: string
 }

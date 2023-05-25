@@ -8,6 +8,7 @@ import { PImages } from "../../entities/pimages";
 
 
 
+
 class products {
 
   // ! get products
@@ -73,10 +74,18 @@ class products {
   public async Delete(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params
 
+    const get = await dataSource
+      .getRepository(Products)
+      .createQueryBuilder("Products")      
+      .leftJoinAndSelect("Products.pImages", "pImages")
+      .where('product_id =:id', { id: id })
+      .getMany()
+      .catch((err) => next(new Exception(err.message, 504)))
 
+    const fountOne = get?.find(e =>e.id == id)
+    const image =  fountOne?.pImages
 
-
-    const del = await dataSource
+    const delProduct = await dataSource
       .createQueryBuilder()
       .delete()
       .from(Products)
@@ -84,7 +93,14 @@ class products {
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
 
-    if (del) res.redirect('/products/products')
+    if(delProduct){
+       image?.map(e=> {
+        del(String(e?.link)).catch(err => next(new Exception(err.message, 500)))
+        
+        
+      } )
+    }
+    if (delProduct) res.redirect('/products/products')
 
   }
 
@@ -116,13 +132,7 @@ class products {
 
 
     if (newSubcategories) res.redirect('/products/products')
-    const get = await dataSource
-      .getRepository(PImages)
-      .find()
-      .catch((err) => next(new Exception(err.message, 504)))
-
-
-    console.log(get);
+   
   }
 
   // ! delete images from products

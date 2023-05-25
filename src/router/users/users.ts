@@ -11,8 +11,11 @@ export default UsersRouter
   .get('/delMail/:id', verifyToken, users.DelMail)
   .post('/create', validationHandler(JOI.mail), users.PostMail)
   .get('/cases', users.GetCases)
+  .get('/casesThree', users.GetCesesThree)
   .get('/employees', users.GetEmployees)
-  .get('/news', users.GetNews)
+  .get('/employeesThree', users.GetEmployeesThree)
+  .get('/newsThree', users.GetNewsThree)
   .get('/products', users.GetProducts)
-  .get('/services', users.getServices)
+  .get('/servicesThree', users.getServicesThree)
+  
 
