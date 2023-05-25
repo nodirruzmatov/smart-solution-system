@@ -64,7 +64,11 @@ class users {
   public async GetCases(req: Request, res: Response, next: NextFunction) {
 
     const allCases = await dataSource.getRepository(Cases)
-      .find()
+      .find({
+        order:{
+          createAt:"DESC"
+        }
+      })
       .catch((err) => next(new Exception(err.message, 504)))
 
     res.json(allCases);
@@ -116,7 +120,11 @@ class users {
   public async GetNews(req: Request, res: Response, next: NextFunction) {
 
     const allNews = await dataSource.getRepository(News)
-      .find()
+      .find({
+        order:{
+          createAt:"DESC"
+        }
+      })
       .catch((err) => next(new Exception(err.message, 504)))
 
     allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
@@ -154,7 +162,7 @@ class users {
     res.json(get)
   }
 
-// ! ------------------
+// ! services ------------------
   public async getServices(req: Request, res: Response, next: NextFunction) {
     const get = await dataSource
       .getRepository(Services)
