@@ -20,7 +20,6 @@ export class Services {
 
   @Column({
     type: "varchar",
-    length: 512,
     nullable: false,
     name: 'service_desc'
   })

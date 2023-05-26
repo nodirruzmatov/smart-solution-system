@@ -16,7 +16,7 @@ class admin {
       .find()
       .catch((err) => next(new Exception(err.message, 504)))
 
-    allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
+    allNews?.filter(e => e.createAt = moment(e.createAt).format('L'))
 
     const link = '/news/news'
 

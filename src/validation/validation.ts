@@ -8,7 +8,7 @@ export const JOI = {
   }),
   news: Joi.object({
     title: Joi.string().max(64).required(),
-    desc: Joi.string().max(512).required(),
+    desc: Joi.string().required(),
     img: Joi.any(),
     location: Joi.string().max(512).required(),
     len: Joi.string().max(16).required(),
@@ -16,7 +16,7 @@ export const JOI = {
   }),
   newsPut: Joi.object({
     title: Joi.string().max(64).allow(""),
-    desc: Joi.string().max(512).allow(""),
+    desc: Joi.string().allow(""),
     img: Joi.string().allow(""),
     location: Joi.string().max(512).allow(""),
     len: Joi.string().max(16)
@@ -34,7 +34,7 @@ export const JOI = {
   employees: Joi.object({
     name: Joi.string().max(32).required(),
     job: Joi.string().max(32).required(),
-    desc: Joi.string().max(512).required(),
+    desc: Joi.string().required(),
     telegram: Joi.string().max(64).required(),
     mail: Joi.string().max(128).required(),
     insta: Joi.string().max(64).required(),
@@ -45,7 +45,7 @@ export const JOI = {
   employeesPut: Joi.object({
     name: Joi.string().max(32).allow(""),
     job: Joi.string().max(32).allow(""),
-    desc: Joi.string().max(512).allow(""),
+    desc: Joi.string().allow(""),
     telegram: Joi.string().max(64).allow(""),
     mail: Joi.string().max(128).allow(""),
     insta: Joi.string().max(64).allow(""),
@@ -55,24 +55,24 @@ export const JOI = {
   }),
   sevices: Joi.object({
     title: Joi.string().max(32).required(),
-    desc: Joi.string().max(512).required(),
+    desc: Joi.string().required(),
     img: Joi.any(),
     len: Joi.string().max(16)
   }),
   sevicesPut: Joi.object({
     title: Joi.string().max(32).allow(""),
-    desc: Joi.string().max(512).allow(""),
+    desc: Joi.string().allow(""),
     img: Joi.string().allow(""),
     len: Joi.string().max(16)
   }),
   products: Joi.object({
     name: Joi.string().max(32).required(),
-    desc: Joi.string().max(512).required(),
+    desc: Joi.string().required(),
     len: Joi.string().max(16)
   }),
   productsPut: Joi.object({
     name: Joi.string().max(32).allow(""),
-    desc: Joi.string().max(512).allow(""),
+    desc: Joi.string().allow(""),
     len: Joi.string().max(16)
   }),
   images: Joi.object({
@@ -82,7 +82,7 @@ export const JOI = {
     name: Joi.string().max(32).required(),
     mail: Joi.string().max(128).required(),
     title: Joi.string().max(32).required(),
-    desc: Joi.string().max(512).required(),
+    desc: Joi.string().required(),
   })
 
 
