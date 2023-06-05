@@ -26,15 +26,15 @@ class products {
   }
 
 
-
+  // ! create productys -----
   public async Create(req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { name, desc, len } = req.body
+    const { name, desc, status,  len } = req.body
 
     const create = await dataSource
       .createQueryBuilder()
       .insert()
       .into(Products)
-      .values({ name, desc, len })
+      .values({ name, desc, status,len })
       .returning("*")
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
@@ -47,7 +47,7 @@ class products {
   public async Update(req: Request, res: Response, next: NextFunction): Promise<void> {
 
     const { id } = req.params;
-    const { name, desc, len } = req.body
+    const { name, desc, status, len } = req.body
 
     const one = await dataSource
       .getRepository(Products)
@@ -60,7 +60,7 @@ class products {
     const update = await dataSource
       .createQueryBuilder()
       .update(Products)
-      .set({ name: n, desc: d, len })
+      .set({ name: n, desc: d,status,  len })
       .where({ id })
       .returning("*")
       .execute()
