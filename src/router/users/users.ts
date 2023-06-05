@@ -13,9 +13,12 @@ export default UsersRouter
   .get('/cases', users.GetCases)
   .get('/casesThree', users.GetCesesThree)
   .get('/employees', users.GetEmployees)
-  .get('/employeesThree', users.GetEmployeesThree)
-  .get('/newsThree', users.GetNewsThree)
+  .get('/employeesThree/eng', users.GetEmployeesThreeEng)
+  .get('/employeesThree/uz', users.GetEmployeesThreeUz)
+  .get('/newsThree/uz', users.GetNewsThreeUz)
+  .get('/newsThree/eng', users.GetNewsThreeEng)
+  .get('/news', users.GetNews)
   .get('/products', users.GetProducts)
-  .get('/servicesThree', users.getServicesThree)
-  
-
+  .get('/servicesThree/uz', users.getServicesThreeUz)
+  .get('/servicesThree/eng', users.getServicesThreeEn)
+  .get('/services', users.getServices)

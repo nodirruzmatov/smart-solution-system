@@ -21,11 +21,17 @@ export class Products {
 
   @Column({
     type: "varchar",
-    length: 512,
     nullable: false,
     name: 'product_desc'
   })
   desc: string
+
+  @Column({
+    type:"varchar",
+    nullable:true,
+    name:'products_status'
+  })
+  status:string
 
   @Column({
     type: 'varchar',

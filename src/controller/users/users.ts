@@ -64,7 +64,11 @@ class users {
   public async GetCases(req: Request, res: Response, next: NextFunction) {
 
     const allCases = await dataSource.getRepository(Cases)
-      .find()
+      .find({
+        order:{
+          createAt:"DESC"
+        }
+      })
       .catch((err) => next(new Exception(err.message, 504)))
 
     res.json(allCases);
@@ -90,17 +94,44 @@ class users {
 
     const allEmployees = await dataSource
       .getRepository(Emmpoyees)
-      .find()
+      .find({
+        order:{
+          createAt:"ASC"
+        }
+      })
       .catch((err) => next(new Exception(err.message, 504)))
 
     res.json(allEmployees);
 
   }
-  public async GetEmployeesThree(req: Request, res: Response, next: NextFunction) {
+  
+  public async GetEmployeesThreeEng(req: Request, res: Response, next: NextFunction) {
 
     const allEmployees = await dataSource
       .getRepository(Emmpoyees)
       .find({
+        where:{
+          len: 'eng'
+        },
+        order:{
+          createAt:"ASC"
+        },
+        take:6
+      })
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    res.json(allEmployees);
+
+  }
+
+  public async GetEmployeesThreeUz(req: Request, res: Response, next: NextFunction) {
+
+    const allEmployees = await dataSource
+      .getRepository(Emmpoyees)
+      .find({
+        where:{
+          len: 'uz'
+        },
         order:{
           createAt:"ASC"
         },
@@ -116,7 +147,11 @@ class users {
   public async GetNews(req: Request, res: Response, next: NextFunction) {
 
     const allNews = await dataSource.getRepository(News)
-      .find()
+      .find({
+        order:{
+          createAt:"ASC"
+        }
+      })
       .catch((err) => next(new Exception(err.message, 504)))
 
     allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
@@ -124,20 +159,48 @@ class users {
     res.json(allNews)
   }
 
-  public async GetNewsThree(req: Request, res: Response, next: NextFunction) {
+  public async GetNewsThreeUz(req: Request, res: Response, next: NextFunction) {
 
     const allNews = await dataSource.getRepository(News)
       .find({
         order:{
           createAt:"DESC"
         },
-        take:5
       })
       .catch((err) => next(new Exception(err.message, 504)))
 
+    const data: any = allNews?.filter(e => e.len == 'uz')
+    let result: any = []
+
+    for(let i = 0; i < 3; i++){
+      result.push(data[i])
+    }
+
     allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
 
-    res.json(allNews)
+    res.json(data)
+  }
+  
+  public async GetNewsThreeEng(req: Request, res: Response, next: NextFunction) {
+
+    const allNews = await dataSource.getRepository(News)
+      .find({
+        order:{
+          createAt:"DESC"
+        },
+      })
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    const data: any = allNews?.filter(e => e.len == 'eng')
+    let result: any = []
+
+    for(let i = 0; i < 3; i++){
+      result.push(data[i])
+    }
+
+    allNews?.filter(e => e.createAt = moment(e.createAt).format('LLL'))
+
+    res.json(data)
   }
 
 
@@ -154,7 +217,7 @@ class users {
     res.json(get)
   }
 
-// ! ------------------
+// ! services ------------------
   public async getServices(req: Request, res: Response, next: NextFunction) {
     const get = await dataSource
       .getRepository(Services)
@@ -164,15 +227,34 @@ class users {
     res.json(get)
   }
 
-  public async getServicesThree(req: Request, res: Response, next: NextFunction) {
-    const get = await dataSource
+  public async getServicesThreeUz(req: Request, res: Response, next: NextFunction) {
+    const get: any = await dataSource
       .getRepository(Services)
-      .find({
-        take:6
-      })
+      .findBy({len: "uz"})
       .catch((err) => next(new Exception(err.message, 504)))
 
-    res.json(get)
+      const arr: any[] = []
+
+      for(let i = 0; i < 6; i++){
+        arr.push(get[i])
+      }
+      
+      res.json(arr)
+  }
+
+  public async getServicesThreeEn(req: Request, res: Response, next: NextFunction) {
+    const get: any = await dataSource
+      .getRepository(Services)
+      .findBy({len: "eng"})
+      .catch((err) => next(new Exception(err.message, 504)))
+
+      const arr: any[] = []
+
+    for(let i = 0; i < 6; i++){
+      arr.push(get[i])
+    }
+    
+    res.json(arr)
   }
 
 

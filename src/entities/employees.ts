@@ -27,7 +27,6 @@ export class Emmpoyees {
 
   @Column({
     type: 'varchar',
-    length: 512,
     nullable: false,
     name: 'employee__desc'
   })

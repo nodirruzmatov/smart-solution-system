@@ -21,7 +21,6 @@ export class News {
 
   @Column({
     type: 'varchar',
-    length: 512,
     nullable: false,
     name: 'news_desc'
   })
