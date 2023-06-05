@@ -13,8 +13,12 @@ export default UsersRouter
   .get('/cases', users.GetCases)
   .get('/casesThree', users.GetCesesThree)
   .get('/employees', users.GetEmployees)
+<<<<<<< HEAD
   .get('/employeesThree/eng', users.GetEmployeesThreeEng)
   .get('/employeesThree/uz', users.GetEmployeesThreeUz)
+=======
+  .get('/employeesThree', users.GetEmployeesThree)
+>>>>>>> 5bb696c931c8146ad7d473ec706ca24dabfe3609
   .get('/newsThree/uz', users.GetNewsThreeUz)
   .get('/newsThree/eng', users.GetNewsThreeEng)
   .get('/news', users.GetNews)
