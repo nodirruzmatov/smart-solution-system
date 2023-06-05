@@ -68,13 +68,13 @@ export const JOI = {
   products: Joi.object({
     name: Joi.string().max(32).required(),
     desc: Joi.string().required(),
-    statud:Joi.string().max(16),
+    status:Joi.string().max(16),
     len: Joi.string().max(16)
   }),
   productsPut: Joi.object({
     name: Joi.string().max(32).allow(""),
     desc: Joi.string().allow(""),
-    statud:Joi.string().max(16),
+    status:Joi.string().max(16),
     len: Joi.string().max(16)
   }),
   images: Joi.object({
