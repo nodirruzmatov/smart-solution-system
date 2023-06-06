@@ -28,13 +28,13 @@ class products {
 
   // ! create productys -----
   public async Create(req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { name, desc, status,  len } = req.body
+    const { name, desc, video, status,  len } = req.body
 
     const create = await dataSource
       .createQueryBuilder()
       .insert()
       .into(Products)
-      .values({ name, desc, status,len })
+      .values({ name, desc,video, status,len })
       .returning("*")
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
@@ -47,7 +47,7 @@ class products {
   public async Update(req: Request, res: Response, next: NextFunction): Promise<void> {
 
     const { id } = req.params;
-    const { name, desc, status, len } = req.body
+    const { name, desc,video, status, len } = req.body
 
     const one = await dataSource
       .getRepository(Products)
@@ -56,11 +56,12 @@ class products {
 
     const n = name ? name : one?.name
     const d = desc ? desc : one?.desc
+    const v = video ? video : one?.video
 
     const update = await dataSource
       .createQueryBuilder()
       .update(Products)
-      .set({ name: n, desc: d,status,  len })
+      .set({ name: n, desc: d, video: v,status,  len })
       .where({ id })
       .returning("*")
       .execute()
@@ -74,6 +75,7 @@ class products {
   public async Delete(req: Request, res: Response, next: NextFunction): Promise<void> {
     const { id } = req.params
 
+    // ? find images by product id for delete 
     const get = await dataSource
       .getRepository(Products)
       .createQueryBuilder("Products")      
@@ -83,6 +85,7 @@ class products {
       .catch((err) => next(new Exception(err.message, 504)))
 
     const fountOne = get?.find(e =>e.id == id)
+
     const image =  fountOne?.pImages
 
     const delProduct = await dataSource
@@ -93,6 +96,7 @@ class products {
       .execute()
       .catch((err) => next(new Exception(err.message, 504)))
 
+      // ? delete images utils fn
     if(delProduct){
        image?.map(e=> {
         del(String(e?.link)).catch(err => next(new Exception(err.message, 500)))

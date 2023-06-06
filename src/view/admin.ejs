@@ -627,10 +627,11 @@
                             <textarea class="add_inp textarea" name="desc" cols="30" rows="10" required
                               placeholder="About products"></textarea>
 
+                            <input class="add_inp" type="text" name="video" placeholder="Product's video" required>
 
                             <select class="add_inp" name="status" required>
-                              <option selected value="true">true</option>
-                              <option value="false">false</option>
+                              <option selected value="true">O'zimizniki</option>
+                              <option value="false">Chetelniki</option>
                             </select>
 
                             <select class="add_inp" name="len" required>
@@ -662,7 +663,7 @@
                                   <a class="img_del" href="/products/delete_img/<%=i.id%>">delete</a>
                                 </div>
 
-                                <% }) %>
+                              <% }) %>
                             </div>
 
                             <h3 class="item_header">
@@ -672,6 +673,14 @@
                             <p class="item_txt">
                               <%= e.desc%>
                             </p>
+
+                            <iframe class="item_video2" width="285" height="161" src="<%= e.video%>" title="YouTube video player"
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowfullscreen>
+                            </iframe>
+
+                            
 
                             <div class="del_put">
                               <a class="del_btn" href="/products/delete/<%=e.id%>">DELETE</a>
@@ -697,9 +706,12 @@
                           <textarea class="add_inp textarea" name="desc" cols="30" rows="10"
                             placeholder="About products"></textarea>
 
+                          <input class="add_inp" type="text" name="video" placeholder="Product's video">
+
+
                           <select class="add_inp" name="status" required>
-                            <option selected value="true">true</option>
-                            <option value="false">false</option>
+                            <option selected value="true">O'zimizniki</option>
+                            <option value="false">Chetelniki</option>
                           </select>
 
                           <select class="add_inp" name="len">

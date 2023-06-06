@@ -69,12 +69,14 @@ export const JOI = {
     name: Joi.string().max(32).required(),
     desc: Joi.string().required(),
     status:Joi.string().max(16),
+    video: Joi.string().required(),
     len: Joi.string().max(16)
   }),
   productsPut: Joi.object({
     name: Joi.string().max(32).allow(""),
     desc: Joi.string().allow(""),
     status:Joi.string().max(16),
+    video: Joi.string().allow(""),
     len: Joi.string().max(16)
   }),
   images: Joi.object({

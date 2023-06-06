@@ -27,6 +27,13 @@ export class Products {
   desc: string
 
   @Column({
+    type: 'varchar',
+    nullable: false,
+    name: 'product_video'
+  })
+  video: string
+
+  @Column({
     type:"varchar",
     nullable:true,
     name:'products_status'
