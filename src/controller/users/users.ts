@@ -90,19 +90,39 @@ class users {
   }
 
   // ! Employees ----------------
-  public async GetEmployees(req: Request, res: Response, next: NextFunction) {
+  public async GetEmployeesAllEng(req: Request, res: Response, next: NextFunction) {
 
     const allEmployees = await dataSource
       .getRepository(Emmpoyees)
       .find({
+        where:{
+          len: 'eng'
+        },
         order:{
           createAt:"ASC"
-        }
+        },
       })
       .catch((err) => next(new Exception(err.message, 504)))
 
     res.json(allEmployees);
 
+  }
+
+  public async GetEmployeesAllUz(req: Request, res: Response, next: NextFunction) {
+
+    const allEmployees = await dataSource
+      .getRepository(Emmpoyees)
+      .find({
+        where:{
+          len: 'uz'
+        },
+        order:{
+          createAt:"ASC"
+        },
+      })
+      .catch((err) => next(new Exception(err.message, 504)))
+
+    res.json(allEmployees);
   }
   
   public async GetEmployeesThreeEng(req: Request, res: Response, next: NextFunction) {
