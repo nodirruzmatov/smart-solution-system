@@ -562,7 +562,7 @@ body {
 .form{
   display: flex;
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center;
   align-content: center;
   align-items: center;
   position: fixed;
@@ -579,7 +579,7 @@ body {
 .form_put{
   display: flex;
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center;
   align-content: center;
   align-items: center;
   position: fixed;
@@ -596,7 +596,7 @@ body {
 .form_img{
   display: flex;
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center;
   align-content: center;
   align-items: center;
   position: fixed;
@@ -616,11 +616,11 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
+  justify-content: space-between;
   align-content: space-around;
   padding: 20px;
   background-color: #fff;
-  border-radius: 15px;  
+  border-radius: 15px;
   font-size: 30px;
   opacity: 1;
   z-index: 20;
@@ -632,11 +632,11 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
+  justify-content: space-between;
   align-content: space-around;
   padding: 20px;
   background-color: #fff;
-  border-radius: 15px;  
+  border-radius: 15px;
   font-size: 30px;
   opacity: 1;
   z-index: 20;
@@ -647,11 +647,11 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
+  justify-content: space-between;
   align-content: space-around;
   padding: 20px;
   background-color: #fff;
-  border-radius: 15px;  
+  border-radius: 15px;
   font-size: 30px;
   opacity: 1;
   z-index: 20;
@@ -659,20 +659,19 @@ body {
 
 .add_inp{
   text-decoration: none;
-  max-height: 40px;
-  height: 100%;
+  max-height: 100px;
   margin-bottom: 8px;
-  padding: 8px;
+  padding: 8px 5px;
   border-radius: 8px;
   outline: none;
-  color: #dde9f8;  
+  color: #dde9f8;
   background-color: #242e42;
   font-size: 20px;
 
 }
 
 .add_inp::placeholder{
-  color: #dde9f8;  
+  color: #dde9f8;
 }
 
 .textarea {
@@ -700,7 +699,7 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;  
+  justify-content: space-between;
   padding: 10px;
 }
 
@@ -709,7 +708,7 @@ body {
   width: 285px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
+  justify-content: space-between;
   text-align: center;
   background: #242e42;
   border-radius: 19px;
@@ -738,7 +737,7 @@ body {
 
 .item_txt2{
   word-wrap: break-word;
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
   color: #9E9E9E;
 }
 
@@ -778,9 +777,26 @@ body {
   color: #fff;
   padding: 15px;
   font-size: 15px;
+  text-decoration: none;
   border-bottom-left-radius: 14px;
 }
 .del_btn:hover{
+  background-color: #ce8934;
+}
+
+.addition_news_del_btn {
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+  width: 100%;
+  background-color: #EC9B3B;
+  color: #fff;
+  padding: 15px;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom-left-radius: 14px;
+}
+.addition_news_del_btn:hover{
   background-color: #ce8934;
 }
 
@@ -819,9 +835,23 @@ body {
 }
 .put_btn:hover{
   background-color: #ce8934;
-
 }
 
+.addition_news_btn {
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-left: 2px #242e42 solid;
+  background-color: #EC9B3B;
+  color: #fff;
+  padding: 15px;
+  font-size: 15px;
+  border-bottom-right-radius: 14px;
+}
+.addition_news_btn:hover{
+  background-color: #ce8934;
+}
 
 .open{
   display: none;
@@ -883,7 +913,7 @@ body {
   padding: 8px;
   border-radius: 8px;
   outline: none;
-  color: #dde9f8;  
+  color: #dde9f8;
   background-color: #242e42;
   font-size: 20px;
 }
@@ -917,4 +947,51 @@ body {
 }
 .img_del:hover{
   background-color: #ce8934;
+}
+
+.item-news {
+  cursor: pointer;
+}
+
+.logo {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.admin-menu > li > a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.modal-form-news {
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 4px solid #242E42;
+}
+
+.modal-form-news > div > label {
+  color: #242E42 !important;
+}
+
+.form-control-textarea-news {
+  max-width: 500px;
+  height: 150px;
+}
+
+.btn-warning-addition-news {
+  margin-top: 35px;
+}
+
+.update_addition-news-btn {
+  background-color: #EC9B3B !important;
+  color: #ffffff !important;
+}
+
+.table-width-addition-news {
+  max-width: 40vw !important;
+}
+
+.update-textarea {
+  height: 600px;
 }

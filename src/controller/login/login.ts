@@ -25,6 +25,7 @@ class login {
     if (!fountAdmin) {
       return next(new Exception('admin not fount', 404))
     }
+    console.log(sing({ id: fountAdmin?.id }));
 
     res.cookie("access_token", sing({ id: fountAdmin?.id }))
     res.redirect('/news/news')

@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/images/logo3.png" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/admin.css">
-  <title>Smasrt Solution System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>Smart Solutions System</title>
 </head>
 
 <body>
@@ -115,11 +117,8 @@
       <a href="#0" aria-label="forecastr logo" class="logo">
         <div class="logo-box">
           <img src="/assets/images/logo3.png" width="36" height="32" alt="logo">
-          <h4 class="logo-txt">SMART SOLUTION SYSTEN</h4>
+          <h4 class="logo-txt">SMART SOLUTIONS SYSTEM</h4>
         </div>
-        <!-- <svg width="140" height="49">
-          <use xlink:href="#logo"></use>
-        </svg> -->
       </a>
 
       <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
@@ -180,9 +179,6 @@
           </a>
         </li>
 
-
-
-
         <li>
           <div class="switch">
             <input type="checkbox" id="mode" checked>
@@ -202,11 +198,9 @@
     </nav>
   </header>
 
-
-  <!-- ! New section -------------- -->
+  <!-- ! news section -->
   <% if (link=="/news/news" ) { %>
     <section class="page-content ">
-
       <button class="create">Create</button>
       <section class="">
 
@@ -217,11 +211,6 @@
           <form class="add_form" action="/news/add_news" enctype="multipart/form-data" method="post">
 
             <input class="add_inp" type="text" name="title" placeholder="News title" required>
-
-
-            <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10" required
-              placeholder="News description"></textarea>
-
 
             <input class="add_inp" type="file" name="img" id="img" required multiple>
 
@@ -234,8 +223,6 @@
 
             <button class="add_btn" type="submit">ADD</button>
           </form>
-
-          <!-- <div class="bg"></div> -->
         </div>
 
 
@@ -243,17 +230,18 @@
 
       <ul class="list">
 
-        <% allNews.map(e=> { %>
 
-          <li class="item">
-            <img class="item_img" src="/images/<%= e.img %> " width="235" height="156" alt="building">
+
+
+        <% allNews?.map(e=> { %>
+
+          <li class="item item-news">
+            <a href="/news/addition/news/<%=e.id%>">
+              <img class="item_img"  onclick="fnForAdditionCourse('/news/addition/news/<%=e.id%>')" src="/images/<%= e.img %> " width="235" height="156" alt="building">
+            </a>
             <h3 class="item_header">
               <%= e.title%>
             </h3>
-            <p class="item_txt">
-              <%= e.desc%>
-            </p>
-
             <p class="item_txt2">
               <%= e.location%>
             </p>
@@ -270,7 +258,6 @@
           </li>
           <% }) %>
 
-
       </ul>
 
       <div class="form_put open">
@@ -280,10 +267,6 @@
         <form id="add__form-put" class="add_form" enctype="multipart/form-data" action="" method="post">
 
           <input class="add_inp" type="text" name="title" placeholder="News title">
-
-
-          <textarea class="add_inp textarea" name="desc" id="" cols="30" rows="10"
-            placeholder="News description"></textarea>
 
           <input class="add_inp" type="file" name="img" id="img" multiple>
 
@@ -302,6 +285,80 @@
 
     </section>
     <% } %>
+
+    <!-- ! adddition new section -->
+    <% if (link=="/news/news/addition" ) { %>
+      <section class="page-content Cases">
+        <div class="modal-body">
+          <div>
+            <form id="add__form-addition-news" class="modal-form-news w-50 d-flex align-items-start" action='' enctype="multipart/form-data" method="post">
+              <div class="w-50">
+                <label for="desc" class="fw-bold fs-4 text-warning mb-2">
+                  Tavsif
+                </label>
+
+                <textarea class="form-control form-control-textarea-news" type="text" id="desc" name="desc" placeholder="Tavsif" required></textarea>
+              </div>
+
+              <div class="w-25 ms-5">
+                <label for="link" class="fw-bold text-warning fs-4 mb-2">
+                  Surat
+                </label>
+
+                <input class="form-control" type="file" id="link" name="link" required>
+              </div>
+
+                <button class="btn btn-warning ms-4 align-self-start btn-warning-addition-news">Qo'shish</button>
+            </form>
+
+
+          </div>
+        </div>
+
+        <ul class="list">
+
+          <% addition_news.map(e=> { %>
+
+            <li class="item item-news">
+              <img class="item_img" src="/images/<%= e.link %> " width="235" height="156" alt="building">
+              <p class="item_header fs-5">
+                <%= e.desc%>
+              </p>
+              <div class="del_put">
+                <a class="addition_news_del_btn" href="/news/delete/addition/<%=e.id%>">DELETE</a>
+                <button class="addition_news_btn"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="" onclick="fnUpdateForAdditionCourse('/news/update/addition/<%=e.id%>')">CHANGE</button>
+
+              </div>
+
+            </li>
+            <% }) %>
+
+
+        </ul>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered table-width-addition-news">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="add_form_update_addition_new" class="add_form" enctype="multipart/form-data" action="" method="post">
+
+                  <textarea class="add_inp update-textarea" name="desc" id="desc" placeholder="News desc"></textarea>
+
+                  <input class="add_inp" type="file" name="link" id="link">
+                  <button class="add_btn btn btn-warning update_addition-news-btn" type="submit">ADD</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <% } %>
 
       <!-- ! cases section -->
       <% if (link=="/cases/cases" ) { %>
@@ -330,7 +387,6 @@
                 <button class="add_btn" type="submit">ADD</button>
               </form>
 
-              <!-- <div class="bg"></div> -->
             </div>
 
 
@@ -428,7 +484,6 @@
                     <button class="add_btn" type="submit">ADD</button>
                   </form>
 
-                  <!-- <div class="bg"></div> -->
                 </div>
 
 
@@ -547,7 +602,6 @@
                         <button class="add_btn" type="submit">ADD</button>
                       </form>
 
-                      <!-- <div class="bg"></div> -->
                     </div>
 
 
@@ -642,7 +696,6 @@
                             <button class="add_btn" type="submit">ADD</button>
                           </form>
 
-                          <!-- <div class="bg"></div> -->
                         </div>
 
 
@@ -680,7 +733,7 @@
                               allowfullscreen>
                             </iframe>
 
-                            
+
 
                             <div class="del_put">
                               <a class="del_btn" href="/products/delete/<%=e.id%>">DELETE</a>
@@ -796,5 +849,6 @@
 </body>
 
 <script src="/assets/js/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </html>

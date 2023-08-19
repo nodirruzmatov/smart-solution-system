@@ -1,4 +1,5 @@
-import { PrimaryGeneratedColumn, CreateDateColumn, Column, Entity, } from 'typeorm'
+import { PrimaryGeneratedColumn, CreateDateColumn, Column, Entity, OneToMany, } from 'typeorm'
+import { AdditionNews } from './news.image.desc'
 
 
 @Entity({
@@ -18,13 +19,6 @@ export class News {
     name: 'news_title'
   })
   title: string
-
-  @Column({
-    type: 'varchar',
-    nullable: false,
-    name: 'news_desc'
-  })
-  desc: string
 
   @Column({
     type: 'varchar',
@@ -53,4 +47,7 @@ export class News {
   })
   createAt: string
 
+
+  @OneToMany(() => AdditionNews, (additionNews) => additionNews.news)
+  addition_news: AdditionNews[]
 }

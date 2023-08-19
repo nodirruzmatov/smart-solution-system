@@ -9,6 +9,19 @@ const switchLabelText = switchLabel.querySelector("span:last-child");
 const collapsedClass = "collapsed";
 const lightModeClass = "light-mode";
 
+// ! put -------
+const fn = (id) => {
+  document.getElementById("add__form-put").action = id;
+};
+
+const fnForAdditionCourse = (id) => {
+  document.getElementById("add__form-addition-news").action = id;
+};
+
+const fnUpdateForAdditionCourse = (id) => {
+  document.getElementById("add_form_update_addition_new").action = id;
+};
+
 /*TOGGLE HEADER STATE*/
 collapseBtn.addEventListener("click", function () {
   body.classList.toggle(collapsedClass);
@@ -70,63 +83,48 @@ const elCloseBtn = document.querySelector(".close")
 const elForm = document.querySelector(".form")
 // const elsectionBtn = document.querySelector(".alert")
 
-
-
-
-
 elOpenBtn.addEventListener("click", function () {
-  elForm.classList.remove("open")
-})
-
+  elForm.classList.remove("open");
+});
 
 elCloseBtn.addEventListener("click", function () {
-  elForm.classList.toggle("open")
-})
+  elForm.classList.toggle("open");
+});
 
-// ! put -------
+const elChangeBtn = document.querySelectorAll(".put_btn");
+const elClosePutBtn = document.querySelector(".close__put");
 
+const elFormPut = document.querySelector(".form_put");
 
-const fn = (id) => {
-  document.getElementById("add__form-put").action = id;
-}
-
-const elChangeBtn = document.querySelectorAll(".put_btn")
-const elClosePutBtn = document.querySelector(".close__put")
-
-const elFormPut = document.querySelector(".form_put")
-
-elChangeBtn.forEach(e => e.addEventListener('click', function () {
-  elFormPut.classList.remove('open')
-}))
-
+elChangeBtn.forEach((e) =>
+  e.addEventListener("click", function () {
+    elFormPut.classList.remove("open");
+  })
+);
 
 elClosePutBtn.addEventListener("click", function () {
-  elFormPut.classList.toggle("open")
-})
-
-
+  elFormPut.classList.toggle("open");
+});
 
 // ! ---------------------
 
 const fn2 = (id) => {
-  document.getElementById('add__form-img').action = id
-}
+  document.getElementById("add__form-img").action = id;
+};
 
-const elImgBtn = document.querySelectorAll(".add_img")
-const elCloseImgBtn = document.querySelector(".close__img")
+const elImgBtn = document.querySelectorAll(".add_img");
+const elCloseImgBtn = document.querySelector(".close__img");
 
-const elFormImg = document.querySelector(".form_img")
+const elFormImg = document.querySelector(".form_img");
 
-
-elImgBtn.forEach(e => e.addEventListener('click', function () {
-  elFormImg.classList.remove('open')
-}))
+elImgBtn.forEach((e) =>
+  e.addEventListener("click", function () {
+    elFormImg.classList.remove("open");
+  })
+);
 
 elCloseImgBtn.addEventListener("click", function () {
-  elFormImg.classList.toggle("open")
-})
+  elFormImg.classList.toggle("open");
+});
 
-
-
-
-
+let value = 1;
