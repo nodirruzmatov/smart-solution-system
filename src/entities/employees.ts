@@ -1,85 +1,85 @@
 import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn } from 'typeorm'
 
 @Entity({
-  name: 'employees'
+  name: "employees",
 })
 export class Emmpoyees {
-  @PrimaryGeneratedColumn('uuid', {
-    name: 'employee_id'
+  @PrimaryGeneratedColumn("uuid", {
+    name: "employee_id",
   })
-  id: string
+  id: string;
 
   @Column({
-    type: 'varchar',
-    length: 32,
-    nullable: false,
-    name: "employee_name"
+    type: "varchar",
+    length: 10000,
+    nullable: true,
+    name: "employee_name",
   })
-  name: string
+  name: string;
 
   @Column({
-    type: 'varchar',
-    length: 32,
-    nullable: false,
-    name: "employee_job"
+    type: "varchar",
+    length: 10000,
+    nullable: true,
+    name: "employee_job",
   })
-  job: string
+  job: string;
 
   @Column({
-    type: 'varchar',
+    type: "varchar",
     nullable: false,
-    name: 'employee__desc'
+    name: "employee__desc",
   })
-  desc: string
+  desc: string;
 
   @Column({
-    type: 'varchar',
-    length: 64,
-    nullable: false,
-    name: 'employee__telegram'
+    type: "varchar",
+    length: 10000,
+    nullable: true,
+    name: "employee__telegram",
   })
-  telegram: string
+  telegram: string;
 
   @Column({
-    type: 'varchar',
-    length: 128,
-    nullable: false,
-    name: 'employee__mail'
+    type: "varchar",
+    length: 10000,
+    nullable: true,
+    name: "employee__mail",
   })
-  mail: string
+  mail: string;
 
   @Column({
-    type: 'varchar',
-    length: 64,
-    nullable: false,
-    name: 'employee__insta'
+    type: "varchar",
+    length: 10000,
+    nullable: true,
+    name: "employee__insta",
   })
-  insta: string
+  insta: string;
 
   @Column({
-    type: 'varchar',
-    length: 32,
-    nullable: false,
-    name: 'employee__phone'
+    type: "varchar",
+    length: 10000,
+    nullable: true,
+    name: "employee__phone",
   })
-  phone: string
+  phone: string;
 
   @Column({
-    type: 'varchar',
+    type: "varchar",
     nullable: false,
-    name: 'employee__img'
+    name: "employee__img",
   })
-  img: string
+  img: string;
 
   @Column({
-    type: 'varchar',
+    type: "varchar",
     nullable: false,
-    name: 'employee_len'
+    name: "employee_len",
   })
-  len: string
+  len: string;
 
   @CreateDateColumn({
-    type: 'timestamptz'
+    type: "timestamptz",
   })
-  createAt: string
+  createAt: string;
 }

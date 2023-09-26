@@ -7,8 +7,7 @@ import employees from "../../controller/employees/employees";
 const EmployeesRouter = Router()
 
 export default EmployeesRouter.use(verifyToken)
-  .get('/employee', employees.Get)
-  .post('/create', validationHandler(JOI.employees), employees.NewEmployee)
-  .post('/update/:id', validationHandler(JOI.employeesPut), employees.Update)
-  .get('/delete/:id', employees.Delete)
-
+  .get("/employee", employees.Get)
+  .post("/create", employees.NewEmployee)
+  .post("/update/:id", employees.Update)
+  .get("/delete/:id", employees.Delete);

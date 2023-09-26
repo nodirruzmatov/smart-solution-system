@@ -995,3 +995,32 @@ body {
 .update-textarea {
   height: 600px;
 }
+
+.item-views {
+  padding: 20px 40px;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+.item-views-header {
+  color: #ffffff;
+  font-size: 34px;
+}
+
+.item-views-desc {
+  font-size: 52px;
+  color: #EC9B3B;
+  font-weight: 700;
+}
+
+.item-views-header-see {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.item-views-desc-data {
+  font-size: 34px;
+  color: #EC9B3B;
+  font-weight: 700;
+}

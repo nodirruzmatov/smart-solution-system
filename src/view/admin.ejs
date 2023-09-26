@@ -178,6 +178,14 @@
             <span>Users</span>
           </a>
         </li>
+        <li>
+          <a href="/views/views">
+            <svg>
+              <use xlink:href="#appearance"></use>
+            </svg>
+            <span>Views</span>
+          </a>
+        </li>
 
         <li>
           <div class="switch">
@@ -796,51 +804,90 @@
                     </section>
                     <% } %>
 
-                      <!-- ! users section -->
-                      <% if (link=='/users/users' ) { %>
-                        <section class="page-content users">
+        <!-- ! users section -->
+        <% if (link=='/users/users' ) { %>
+          <section class="page-content users">
 
-                          <ul class="list">
+            <ul class="list">
 
-                            <% get.map(e=> { %>
+              <% get.map(e=> { %>
 
-                              <li class="item">
+                <li class="item">
 
-                                <h3 class="item_header">
-                                  <%= e.name%>
-                                </h3>
+                  <h3 class="item_header">
+                    <%= e.name%>
+                  </h3>
 
-                                <p class="item_txt2">
-                                  <%= e.mail%>
-                                </p>
+                  <p class="item_txt2">
+                    <%= e.mail%>
+                  </p>
 
-                                <p class="item_txt">
-                                  <%= e.title%>
-                                </p>
+                  <p class="item_txt">
+                    <%= e.title%>
+                  </p>
 
-                                <p class="item_txt">
-                                  <%= e.desc%>
-                                </p>
+                  <p class="item_txt">
+                    <%= e.desc%>
+                  </p>
 
-                                <p class="item_txt2">
-                                  <%= e.createAt%>
-                                </p>
-
-
-                                <div class="del_put">
-                                  <a class="del_btn del_btn2" href="/users/delMail/<%=e.id%>">DELETE</a>
+                  <p class="item_txt2">
+                    <%= e.createAt%>
+                  </p>
 
 
-                                </div>
-
-                              </li>
-                              <% }) %>
+                  <div class="del_put">
+                    <a class="del_btn del_btn2" href="/users/delMail/<%=e.id%>">DELETE</a>
 
 
-                          </ul>
+                  </div>
 
-                        </section>
-                        <% } %>
+                </li>
+                <% }) %>
+
+
+            </ul>
+
+          </section>
+          <% } %>
+
+
+          <!-- ! users section -->
+        <% if (link=='/views/views' ) { %>
+          <section class="page-content users">
+
+            <ul class="list">
+
+              <% get.map(e=> { %>
+
+                <li class="item item-views">
+
+                  <div>
+                    <h3 class="item-views-header m-0">
+                      Number of views
+                    </h3>
+                    <p class="item_desc item-views-desc m-0 p-0">
+                      <%= e.number%>
+                    </p>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="item-views-header-see m-0">
+                      Last seen time:
+                    </h3>
+                    <p class="item_txt2 item-views-desc-data m-0 p-0">
+                      <%= ` ${new Date(e.updateAt).getMonth()+ 1}/${new Date(e.updateAt).getDate()}/${new Date(e.updateAt).getFullYear()} ${new Date(e.updateAt).getHours()}:${new Date(e.updateAt).getMinutes()}`%>
+                    </p>
+                  </div>
+
+
+                </li>
+                <% }) %>
+
+
+            </ul>
+
+          </section>
+          <% } %>
 
 
 
